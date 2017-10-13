@@ -17,3 +17,7 @@ output "fabio_ui" {
 output "nomad_ui" {
   value = "${google_dns_record_set.nomad.name}"
 }
+
+output "bastion_ip" {
+  value = "${google_compute_address.bastion.address}"
+}

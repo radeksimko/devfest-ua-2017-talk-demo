@@ -67,13 +67,17 @@ resource "google_compute_instance_template" "bastion" {
   network_interface {
     subnetwork = "${google_compute_subnetwork.public.name}"
     access_config {
-      // Ephemeral IP
+      nat_ip = "${google_compute_address.bastion.address}"
     }
   }
 
   lifecycle {
     create_before_destroy = true
   }
+}
+
+resource "google_compute_address" "bastion" {
+  name = "${var.prefix}-bastion"
 }
 
 
