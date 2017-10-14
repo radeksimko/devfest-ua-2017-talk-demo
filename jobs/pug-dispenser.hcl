@@ -9,7 +9,7 @@ job "pug-dispenser" {
       driver = "docker"
 
       config {
-        image = "radeksimko/pug-dispenser:latest"
+        image = "radeksimko/pug-dispenser:0.2.4"
         args = ["-text=Hello"]
         port_map {
           "http" = 5678
